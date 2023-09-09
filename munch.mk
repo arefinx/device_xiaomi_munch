@@ -12,7 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/proton/config/common.mk)
 PROTON_BUILD_VARIANT := OFFICIAL
 
-# Inherit from alioth device
+# Inherit from munch device
 $(call inherit-product, device/xiaomi/munch/device.mk)
 
 PRODUCT_NAME := munch
