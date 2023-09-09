@@ -1,16 +1,17 @@
 #
-# Copyright (C) 2021 The LineageOS Project
+# Copyright (C) 2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter alioth apollon cas cmi elish enuma lmi munch thyme umi,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),munch)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
-include $(CLEAR_VARS)
+endif
+
 
 # A/B builds require us to create the mount points at compile time.
 # Just creating it for all cases since it does not hurt.
@@ -209,5 +210,3 @@ $(CNE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /vendor/lib64/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(CNE_SYMLINKS)
-
-endif
